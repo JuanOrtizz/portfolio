@@ -1,0 +1,230 @@
+@import url("./variables.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 0.5rem);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Los navegadores sin soporte de ::-webkit-scrollbar (Firefox) usan las
+   propiedades estándar. En Chrome/Edge/Safari van los pseudo-elementos de
+   abajo: declarar scrollbar-* aquí desactivaría el estilo webkit. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: #d98bff #130f20;
+    scrollbar-width: thin;
+  }
+}
+
+/* ---------------------------- SCROLLBAR ---------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #130f20;
+  background-image: linear-gradient(
+    180deg,
+    rgba(217, 139, 255, 0.1),
+    rgba(217, 139, 255, 0.02)
+  );
+  border-radius: var(--radius-pill);
+  box-shadow:
+    inset 0 0 0 1px rgba(217, 139, 255, 0.16),
+    inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  background-image: linear-gradient(
+    180deg,
+    #f0c6ff 0%,
+    #d98bff 40%,
+    #b56bff 70%,
+    #f0c6ff 100%
+  );
+  background-size: 100% 250%;
+  border-radius: var(--radius-pill);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 0 8px rgba(217, 139, 255, 0.5);
+  animation: scrollbar-flow 4s linear infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(
+    180deg,
+    #ffd6f5 0%,
+    #ff8bd4 50%,
+    #d98bff 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 14px rgba(217, 139, 255, 0.85);
+  animation-duration: 1.8s;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-image: none;
+  background-color: var(--accent-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+@keyframes scrollbar-flow {
+  from {
+    background-position: 50% 0%;
+  }
+  to {
+    background-position: 50% -250%;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background: radial-gradient(
+    130% 95% at 50% 0%,
+    rgba(3, 1, 12, 0) 52%,
+    rgba(3, 1, 12, 0.6) 100%
+  );
+}
+
+/* Cielo de estrellas: lo dibuja effects.js sobre un canvas fijo. */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -4;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 280px 280px;
+  mix-blend-mode: soft-light;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.08;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.12;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  line-height: 1.15;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    animation: none !important;
+  }
+}
