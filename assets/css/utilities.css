@@ -1,0 +1,117 @@
+/* =========================================================
+   UTILITIES — helpers puntuales y estados de animación
+   ========================================================= */
+
+/* ---------------------------- ACCESIBILIDAD ---------------------------- */
+
+.visually-hidden {
+  position: absolute !important;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* ---------------------------- TEXTOS ---------------------------- */
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ---------------------------- ESPACIADO ---------------------------- */
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, var(--space-md));
+}
+
+.divider {
+  block-size: 1px;
+  border: 0;
+  background-color: var(--border-subtle);
+}
+
+/* ---------------------------- REVEAL ---------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.no-js [data-reveal],
+html:not(.js) [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .carousel__track.is-ready .carousel__slide,
+  .carousel__track.is-ready .carousel__slide.is-active,
+  .carousel__track.is-ready .carousel__slide .project {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .carousel__track {
+    scroll-behavior: auto;
+  }
+
+  .carousel__slide.is-active .project__media img {
+    animation: none;
+  }
+
+  .btn:hover,
+  .skill-group:hover,
+  .timeline__card:hover,
+  a.contact__item:hover,
+  .cert__link:hover,
+  .project:hover,
+  .carousel__track.is-ready .carousel__slide.is-active .project:hover,
+  .tag:hover,
+  .project:hover .project__media img {
+    transform: none;
+  }
+
+  .hero__photo::after {
+    animation: none;
+  }
+
+  .site-footer__nav a:hover {
+    translate: none;
+  }
+}
