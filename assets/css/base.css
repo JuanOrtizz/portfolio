@@ -13,6 +13,8 @@ html {
   scroll-padding-top: calc(var(--header-height) + 0.5rem);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Sin zoom con dos dedos: se permite desplazar en ambos ejes, no hacer pinch. */
+  touch-action: pan-x pan-y;
 }
 
 /* Los navegadores sin soporte de ::-webkit-scrollbar (Firefox) usan las
