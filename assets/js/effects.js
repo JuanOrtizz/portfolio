@@ -47,7 +47,7 @@
     var time = 0;
 
     function seed() {
-      var count = Math.min(260, Math.round((width * height) / 6800));
+      var count = Math.min(130, Math.round((width * height) / 10000));
       stars = [];
 
       for (var i = 0; i < count; i++) {

@@ -355,6 +355,17 @@
 
     function onWheel(event) {
       if (event.ctrlKey || event.defaultPrevented) return;
+
+      /* Dentro de la consola el scroll es nativo (el log tiene su propio
+         overflow). No lo secuestramos con la inercia de la página. */
+      if (
+        event.target &&
+        event.target.closest &&
+        event.target.closest(".agent-modal")
+      ) {
+        return;
+      }
+
       if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
 
       event.preventDefault();

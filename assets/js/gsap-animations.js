@@ -40,7 +40,7 @@
   }
 
   function initHero() {
-    var intro = $$("[data-reveal]").slice(0, 4);
+    var intro = $$(".hero [data-reveal]");
 
     if (!intro.length) return;
 
@@ -69,7 +69,10 @@
   }
 
   function initScrollReveals() {
-    var blocks = $$("[data-reveal]").slice(4);
+    var all = $$("[data-reveal]");
+    var blocks = all.filter(function (el) {
+      return !el.closest(".hero");
+    });
 
     if (!blocks.length) return;
 
@@ -78,20 +81,16 @@
         el,
         {
           opacity: 0,
-          y: 46,
-          rotateX: -14,
-          transformPerspective: 900,
-          transformOrigin: "50% 100%"
+          y: 44
         },
         {
           opacity: 1,
           y: 0,
-          rotateX: 0,
-          duration: 0.9,
+          duration: 0.85,
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 86%",
+            start: "top 88%",
             once: true,
             onEnter: function () {
               el.classList.add("is-visible");
@@ -206,24 +205,10 @@
   }
 
   /**
-   * Parallax suave de la foto del hero mientras se hace scroll.
+   * Parallax de la foto desactivado para evitar desfasajes al hacer scroll;
+   * la foto se anima con la flotación fluida de initHeroFloat().
    */
-  function initHeroParallax() {
-    var photo = $(".hero__photo");
-
-    if (!photo) return;
-
-    global.gsap.to(photo, {
-      yPercent: 14,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  }
+  function initHeroParallax() {}
 
   /**
    * Aparición escalonada de los tags dentro de cada grupo de skills.

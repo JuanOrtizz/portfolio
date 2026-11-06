@@ -145,6 +145,46 @@
   transform: scaleX(1);
 }
 
+/* --- Botón destacado del Agente IA en el Nav --- */
+.nav__link--agent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(217, 139, 255, 0.1);
+  border: 1px solid rgba(217, 139, 255, 0.35);
+  box-shadow: 0 0 14px rgba(217, 139, 255, 0.18);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.nav__link--agent::after {
+  display: none;
+}
+
+.nav__link--agent .icon {
+  inline-size: 0.95rem;
+  block-size: 0.95rem;
+  color: var(--accent);
+  transition: transform var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.nav__link--agent:hover {
+  background: rgba(217, 139, 255, 0.22);
+  border-color: var(--accent);
+  box-shadow: 0 0 22px rgba(217, 139, 255, 0.4);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.nav__link--agent:hover .icon {
+  transform: scale(1.15);
+  color: #ffffff;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -763,6 +803,16 @@
     inset-block-end: 0;
   }
 
+  .nav__link--agent {
+    display: inline-flex;
+    justify-content: center;
+    align-self: flex-start;
+    margin-block: var(--space-xs);
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(217, 139, 255, 0.45);
+  }
+
   .hero {
     min-block-size: auto;
     padding-block: calc(var(--header-height) + var(--space-3xl))
@@ -773,7 +823,32 @@
     display: none;
   }
 
+  /* Jerarquía de CTAs en móvil: agente y proyectos a ancho completo,
+     CV y GitHub en una fila de dos. */
+  .hero__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero__actions > .btn--agent,
+  .hero__actions > .btn--primary {
+    grid-column: 1 / -1;
+  }
+
   .section {
     padding-block: var(--space-3xl);
+  }
+}
+
+/* Con el link extra (Agente IA) el nav suma un item: en tablets se
+   compacta un poco para que los 7 entren sin desbordar. */
+@media (min-width: 48.0625rem) and (max-width: 62rem) {
+  .nav__list {
+    gap: 0.15rem;
+  }
+
+  .nav__link {
+    padding-inline: 0.45rem;
+    font-size: 0.85rem;
   }
 }
