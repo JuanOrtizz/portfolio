@@ -28,7 +28,6 @@ ${JSON.stringify(knowledgeData, null, 2)}
 `;
 
 export default async function handler(req, res) {
-  // Configuración de CORS
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -63,7 +62,7 @@ export default async function handler(req, res) {
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.5-flash-lite",
       contents: message.trim(),
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
@@ -75,7 +74,6 @@ export default async function handler(req, res) {
     const reply = response.text || "No pude generar una respuesta en este momento.";
     return res.status(200).json({ reply });
   } catch (error) {
-    console.error("Error al consultar Gemini:", error);
     return res.status(500).json({
       error: "Ocurrió un error al procesar tu consulta con la IA.",
       details: error.message

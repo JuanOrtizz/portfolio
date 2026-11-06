@@ -1,14 +1,3 @@
-/**
- * Agente IA — interfaz de la consola.
- *
- * Por ahora es SOLO UI: boot animado, efecto de escritura, chips de
- * sugerencias y respuestas locales de ejemplo. No hace ninguna petición de
- * red.
- *
- * Para conectar n8n más adelante: completar ENDPOINT con la URL del webhook
- * de producción y reemplazar el cuerpo de askAgent() por el fetch (enviando
- * al menos { message, sessionId }). El resto de la UI ya queda funcionando.
- */
 (function (global) {
   "use strict";
 
@@ -31,9 +20,6 @@
     return false;
   };
 
-  /* ============================ CONFIG ============================ */
-
-  // TODO n8n: pegar acá la URL del webhook de producción.
   var ENDPOINT = "";
 
   var SESSION_ID = "pf-" + Math.random().toString(36).slice(2, 10);
@@ -261,9 +247,9 @@
     }
 
     async function askAgent(message) {
-      // 1. Intentar llamar al backend serverless en Vercel (/api/chat)
+      var url = ENDPOINT || "/api/chat";
       try {
-        var response = await fetch("/api/chat", {
+        var response = await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -278,11 +264,8 @@
           }
         }
       } catch (err) {
-        // En entorno local sin servidor Vercel o sin conexión, pasa al fallback local
-        console.warn("No se pudo conectar con el endpoint /api/chat. Usando fallback offline.", err);
       }
 
-      // 2. Fallback local / offline (en caso de fallar la red o estar probando con Live Server)
       return new Promise(function (resolve) {
         global.setTimeout(
           function () {
