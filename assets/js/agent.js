@@ -20,7 +20,7 @@
     return false;
   };
 
-  var ENDPOINT = "";
+  var ENDPOINT = "https://portafolio-jio13.vercel.app/api/chat";
 
   var SESSION_ID = "pf-" + Math.random().toString(36).slice(2, 10);
 
