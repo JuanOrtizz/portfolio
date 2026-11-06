@@ -309,6 +309,10 @@
           <path d="m3.9 7 7.1 5.3a2 2 0 0 0 2.2 0L20.1 7" />
         </symbol>
 
+        <symbol id="i-send" viewBox="0 0 24 24">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+        </symbol>
+
         <symbol id="i-linkedin" viewBox="0 0 24 24">
           <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
           <path d="M7.6 10.4v6M7.6 7.6h.01M11.6 16.4v-3.6c0-1.2.8-2.1 2-2.1s2 .9 2 2.1v3.6" />
@@ -400,6 +404,17 @@
 
         <nav class="nav" data-nav aria-label="Navegación principal">
           <ul class="nav__list" id="nav-menu" data-nav-list>
+            <li>
+              <a
+                class="nav__link nav__link--agent"
+                href="#agent"
+                data-agent-open
+                aria-haspopup="dialog"
+              >
+                <svg class="icon" aria-hidden="true"><use href="#i-terminal"></use></svg>
+                <span>Agente IA</span>
+              </a>
+            </li>
             <li><a class="nav__link" href="#about">Sobre mí</a></li>
             <li><a class="nav__link" href="#skills">Skills</a></li>
             <li><a class="nav__link" href="#experience">Experiencia</a></li>
@@ -447,6 +462,17 @@
             </p>
 
             <div class="hero__actions" data-reveal>
+              <button
+                class="btn btn--agent"
+                type="button"
+                data-agent-open
+                aria-haspopup="dialog"
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-terminal"></use>
+                </svg>
+                Preguntale a mi agente
+              </button>
               <a class="btn btn--primary" href="#projects">Ver proyectos</a>
               <a
                 class="btn btn--ghost"
@@ -919,7 +945,7 @@
               <div class="timeline__marker" aria-hidden="true"></div>
               <article class="timeline__card">
                 <p class="timeline__period">Ago 2026 — presente</p>
-                <h3 class="timeline__role">Líder Técnico</h3>
+                <h3 class="timeline__role">Coordinador de Desarrollo & Software Developer</h3>
                 <p class="timeline__org">
                   PoshiNet · Remoto (Argentina)
                 </p>
@@ -929,6 +955,11 @@
                 </p>
                 <ul class="timeline__list">
                   <li>
+                    Desarrollo activo de nuevas funcionalidades y módulos de software,
+                    participando en la arquitectura, codificación y mantenimiento
+                    continuo de las plataformas.
+                  </li>
+                  <li>
                     Revisión de pull requests y control de calidad del código
                     del equipo.
                   </li>
@@ -937,7 +968,7 @@
                     y seguimiento de las entregas.
                   </li>
                   <li>
-                    Liderazgo técnico y mentoría del equipo de desarrollo.
+                    Coordinación técnica y mentoría del equipo de desarrollo.
                   </li>
                   <li>
                     Definición de estándares de código y buenas prácticas, en
@@ -946,12 +977,28 @@
                 </ul>
                 <ul class="tag-list tag-list--tight">
                   <li class="tag">
-                    <svg class="icon" aria-hidden="true"><use href="#i-architecture"></use></svg>
-                    Liderazgo técnico
-                  </li>
-                  <li class="tag">
                     <svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>
                     Desarrollo de Software
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-architecture"></use></svg>
+                    Coordinación Técnica
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-git"></use></svg>
+                    Git & GitHub
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-review"></use></svg>
+                    Code Review & QA
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-kanban"></use></svg>
+                    Scrum
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-api"></use></svg>
+                    APIs REST
                   </li>
                 </ul>
               </article>
@@ -960,49 +1007,72 @@
             <li class="timeline__item" data-reveal>
               <div class="timeline__marker" aria-hidden="true"></div>
               <article class="timeline__card">
-                <p class="timeline__period">Jun 2026 — presente</p>
+                <p class="timeline__period">Ago 2026 — presente</p>
                 <h3 class="timeline__role">
-                  Pasante Desarrollador de Agentes AI
+                  AI Specialist Operator
                 </h3>
                 <p class="timeline__org">Incompany · Remoto (Costa Rica)</p>
+                <p class="timeline__role-note">
+                  <span class="timeline__role-note-from">Pasante Desarrollador de Agentes AI</span>
+                  <span class="timeline__role-note-date">Jun 2026 — Ago 2026</span>
+                </p>
                 <ul class="timeline__list">
                   <li>
-                    Desarrollo agentes conversacionales con LLMs, RAG y MCP
-                    conectados a fuentes de datos internas.
+                    Desarrollo e integración End-to-End (E2E) de agentes con IA
+                    y prototipos (PoC) en n8n, Claude y Agentforce, conectados a
+                    canales como WhatsApp, Telegram e Instagram.
                   </li>
                   <li>
-                    Configuración de agentes en Agentforce y flujos de
-                    Salesforce para automatizar consultas repetitivas.
+                    Definición y supervisión de políticas de gobernanza, seguridad
+                    y buenas prácticas en el uso de IA generativa para toda la
+                    organización.
                   </li>
                   <li>
-                    Orquestación de workflows en n8n con Supabase para
-                    persistencia y trazabilidad.
+                    Mentoría y soporte técnico a desarrolladores para potenciar el
+                    uso de herramientas de IA en flujos de codificación, debugging
+                    y testing.
                   </li>
                   <li>
-                    Auditoría de agentes existentes: detección de prompts
-                    flojos, alucinaciones y rutas de escalado humano.
+                    Capacitación y acompañamiento a Project Managers (PMs) para
+                    optimizar estimaciones, especificaciones y gestión mediante IA.
+                  </li>
+                  <li>
+                    Auditoría, testing E2E y control de calidad de agentes y prompts:
+                    mitigación de alucinaciones, fuga de datos y trazabilidad.
                   </li>
                 </ul>
                 <ul class="tag-list tag-list--tight">
                   <li class="tag">
-                    <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
-                    n8n
+                    <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+                    Gobernanza de IA
                   </li>
                   <li class="tag">
-                    <svg class="icon" aria-hidden="true"><use href="#i-rag"></use></svg>
-                    RAG
-                  </li>
-                  <li class="tag">
-                    <svg class="icon" aria-hidden="true"><use href="#i-plug"></use></svg>
-                    MCP
+                    <svg class="icon" aria-hidden="true"><use href="#i-claude"></use></svg>
+                    Claude & LLMs
                   </li>
                   <li class="tag">
                     <svg class="icon" aria-hidden="true"><use href="#i-robot"></use></svg>
                     Agentforce
                   </li>
                   <li class="tag">
-                    <svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
-                    Supabase
+                    <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
+                    n8n
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg>
+                    WhatsApp & Telegram
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-plug"></use></svg>
+                    Soluciones E2E
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-spark"></use></svg>
+                    Prompt Engineering
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-rag"></use></svg>
+                    RAG & MCP
                   </li>
                 </ul>
               </article>
@@ -1011,21 +1081,33 @@
             <li class="timeline__item" data-reveal>
               <div class="timeline__marker" aria-hidden="true"></div>
               <article class="timeline__card">
-                <p class="timeline__period">Mar 2026 — presente</p>
-                <h3 class="timeline__role">Chatbot Developer</h3>
+                <p class="timeline__period">Mar 2026 — Oct 2026</p>
+                <h3 class="timeline__role">Agent & Chatbot AI Developer</h3>
                 <p class="timeline__org">ChatMind Studio · Remoto (Argentina)</p>
                 <ul class="timeline__list">
                   <li>
-                    Desarrollo de chatbots en Python con flujos
-                    conversacionales definidos por etapas.
+                    Diseño y desarrollo de agentes conversacionales y chatbots
+                    en Python con máquinas de estado finitas y flujos lógicos
+                    guiados por etapas.
                   </li>
                   <li>
-                    Diseño de las respuestas para que el bot pida los datos
-                    faltantes en lugar de adivinarlos.
+                    Implementación de lógica de extracción inteligente de
+                    entidades y validación de entradas de usuario para recopilar
+                    información clave sin fricciones.
                   </li>
                   <li>
-                    Iteración sobre las respuestas usando feedback de usuarios
-                    reales, no supuestos.
+                    Conexión e integración con APIs de mensajería (WhatsApp,
+                    Telegram, Instagram) y webhooks para sincronización con
+                    plataformas externas.
+                  </li>
+                  <li>
+                    Optimización continua de árboles de diálogo y respuestas
+                    mediante análisis de logs y métricas de comportamiento de
+                    usuarios reales.
+                  </li>
+                  <li>
+                    Diseño de rutas de fallback, manejo de respuestas fuera de
+                    contexto y derivación fluida hacia atención humana.
                   </li>
                 </ul>
                 <ul class="tag-list tag-list--tight">
@@ -1036,6 +1118,14 @@
                   <li class="tag">
                     <svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg>
                     Chatbots
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-spark"></use></svg>
+                    Agentes AI
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-api"></use></svg>
+                    APIs & Webhooks
                   </li>
                   <li class="tag">
                     <svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>
@@ -1055,16 +1145,29 @@
                 <p class="timeline__org">Freelance</p>
                 <ul class="timeline__list">
                   <li>
-                    Proyectos full stack y móviles para clientes
-                    pequeños: e-commerce, simuladores y apps de inventario.
+                    Desarrollo de aplicaciones web y móviles a medida para
+                    diversos clientes: plataformas e-commerce, sistemas de
+                    inventario y simuladores de negocio.
                   </li>
                   <li>
-                    APIs REST con Django y .NET MAUI, modelado de datos en
-                    PostgreSQL y SQLite.
+                    Construcción de arquitecturas backend y APIs REST escalables
+                    con Django (Python) y .NET MAUI (C#), priorizando
+                    rendimiento, modularidad y seguridad.
                   </li>
-                  <li>Trabajo bajo Scrum y cobertura de tests con PyTest.</li>
                   <li>
-                    Código revisado con los clientes antes de cada entrega.
+                    Modelado, normalización y gestión de bases de datos
+                    relacionales en PostgreSQL y SQLite, asegurando integridad
+                    referencial y consultas optimizadas.
+                  </li>
+                  <li>
+                    Cobertura de código con tests unitarios y de integración
+                    mediante PyTest, minimizando regresiones y fallos en
+                    producción.
+                  </li>
+                  <li>
+                    Gestión ágil bajo Scrum con entregas iterativas,
+                    demostraciones funcionales periódicas y trato directo con
+                    clientes para alinear expectativas técnicas y comerciales.
                   </li>
                 </ul>
                 <ul class="tag-list tag-list--tight">
@@ -1075,6 +1178,18 @@
                   <li class="tag">
                     <svg class="icon" aria-hidden="true"><use href="#i-dotnet"></use></svg>
                     .NET MAUI
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
+                    PostgreSQL & SQLite
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-api"></use></svg>
+                    APIs REST
+                  </li>
+                  <li class="tag">
+                    <svg class="icon" aria-hidden="true"><use href="#i-git"></use></svg>
+                    Git
                   </li>
                   <li class="tag">
                     <svg class="icon" aria-hidden="true"><use href="#i-kotlin"></use></svg>
@@ -2215,6 +2330,112 @@
         </div>
       </section>
     </main>
+    <!-- ========================= AGENTE IA (MODAL) ========================= -->
+    <dialog
+      class="agent-modal"
+      id="agent"
+      data-agent
+      data-agent-dialog
+      aria-label="Consola del agente de Juan"
+    >
+      <div class="terminal">
+        <div class="terminal__bar">
+          <span class="terminal__title">
+            <svg class="icon" aria-hidden="true"><use href="#i-robot"></use></svg>
+            <span class="terminal__title-text">~/agente</span>
+          </span>
+          <span class="terminal__status" data-agent-status>
+            <span class="terminal__status-dot" aria-hidden="true"></span>
+            <span data-agent-status-text>conectando…</span>
+          </span>
+          <button
+            class="terminal__close"
+            type="button"
+            data-agent-close
+            aria-label="Cerrar consola"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="terminal__screen"
+          data-agent-log
+          role="group"
+          aria-label="Conversación con el agente"
+        ></div>
+
+        <div class="terminal__suggestions" data-agent-suggestions>
+          <button
+            class="term-chip"
+            type="button"
+            data-agent-prompt="¿Qué stack manejás?"
+          >
+            <span aria-hidden="true">&gt;</span> ¿Qué stack manejás?
+          </button>
+          <button
+            class="term-chip"
+            type="button"
+            data-agent-prompt="Contame de tus proyectos"
+          >
+            <span aria-hidden="true">&gt;</span> Proyectos
+          </button>
+          <button
+            class="term-chip"
+            type="button"
+            data-agent-prompt="¿Cómo te contacto?"
+          >
+            <span aria-hidden="true">&gt;</span> Contacto
+          </button>
+          <button
+            class="term-chip"
+            type="button"
+            data-agent-prompt="¿Qué certificaciones tenés?"
+          >
+            <span aria-hidden="true">&gt;</span> Certificaciones
+          </button>
+        </div>
+
+        <form class="terminal__form" data-agent-form>
+          <label class="visually-hidden" for="agent-input">
+            Mensaje para el agente
+          </label>
+          <span class="terminal__prompt" aria-hidden="true"
+            >guest@portfolio:~$</span
+          >
+          <input
+            class="terminal__input"
+            id="agent-input"
+            data-agent-input
+            type="text"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            enterkeyhint="send"
+            placeholder="Escribí tu pregunta y apretá Enter…"
+          />
+          <button
+            class="terminal__send"
+            type="submit"
+            data-agent-send
+            aria-label="Enviar mensaje"
+          >
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-send"></use>
+            </svg>
+          </button>
+        </form>
+
+        <p
+          class="visually-hidden"
+          data-agent-live
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
+      </div>
+    </dialog>
 
     <footer class="site-footer">
       <span class="site-footer__glow" aria-hidden="true"></span>
@@ -2224,6 +2445,11 @@
           <nav class="site-footer__nav" aria-label="Secciones">
             <h2 class="site-footer__heading">Secciones</h2>
             <ul>
+              <li>
+                <a href="#agent" data-agent-open aria-haspopup="dialog"
+                  >Agente IA (Terminal)</a
+                >
+              </li>
               <li><a href="#about">Sobre mí</a></li>
               <li><a href="#skills">Skills</a></li>
               <li><a href="#experience">Experiencia</a></li>
@@ -2290,5 +2516,6 @@
     <script src="assets/js/effects.js" defer></script>
     <script src="assets/js/gsap-animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/agent.js" defer></script>
   </body>
 </html>
