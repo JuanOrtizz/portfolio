@@ -35,93 +35,6 @@
     "canal seguro listo · agente en línea"
   ];
 
-  var FALLBACK =
-    "Todavía no tengo esa respuesta. Probá con stack, proyectos, " +
-    "experiencia, certificaciones o contacto.";
-
-  var RULES = [
-    {
-      test: /(hola|buenas|hey|que tal|quien sos|quien eres|que haces)/,
-      answer:
-        "¡Hola! Soy el agente de Juan. Preguntame por su stack, sus " +
-        "proyectos, su experiencia o cómo contactarlo."
-    },
-    {
-      test: /(stack|tecnolog|lenguaje|backend|frontend|herramienta|skills|con que trabaja)/,
-      answer:
-        "Juan trabaja con Python, JavaScript, Kotlin, C# y SQL. En backend: " +
-        "Django, DRF, Node/Express, .NET, JWT y APIs REST. En IA: LLMs, RAG, " +
-        "MCP, prompt engineering y n8n. En frontend: React, HTML/CSS y GSAP."
-    },
-    {
-      test: /(proyecto|portfolio|practicasa|trainium|mate|hipotec|tradeflow|chatbot|veterinaria|cabana)/,
-      answer:
-        "En la sección Proyectos hay 10 trabajos: Practicasa (gestión " +
-        "inmobiliaria), TrainiumNeon (gimnasio), Mate-Style (e-commerce), " +
-        "Simulador Hipotecario, MiCabaña, TradeFlow, Chatbots y una " +
-        "veterinaria con consola. Varios tienen demo online."
-    },
-    {
-      test: /(experiencia|trabajo|trabajaste|laburo|empresa|puesto)/,
-      answer:
-        "Su experiencia combina desarrollo fullstack y agentes " +
-        "conversacionales conectados a bases de datos reales. El detalle " +
-        "está en la sección Experiencia."
-    },
-    {
-      test: /(estudio|educacion|carrera|uces|titulo|facultad)/,
-      answer:
-        "Es Técnico Universitario en Programación de Sistemas (UCES). " +
-        "Podés ver la formación en la sección Formación."
-    },
-    {
-      test: /(certific|curso|daxus|codigo facilito|big school|salesforce)/,
-      answer:
-        "Sigue sumando certificaciones: agentes de IA, Docker, Python, n8n, " +
-        "desarrollo con IA y más. Están listadas en Formación con emisor y " +
-        "fecha."
-    },
-    {
-      test: /(contacto|email|mail|linkedin|github|hablar|contratar|disponible|cv)/,
-      answer:
-        "Podés escribirle a juan_ignaortiz@outlook.com, por LinkedIn (Juan " +
-        "Ignacio Ortiz) o ver su código en github.com/JuanOrtizz."
-    },
-    {
-      test: /(agente|n8n|como funciona|consola|webhook)/,
-      answer:
-        "Esta consola se conecta a un agente en n8n por webhook, con " +
-        "respuestas sobre el portfolio y sus proyectos."
-    },
-    {
-      test: /(gracias|genial|buenisimo|dale|perfecto)/,
-      answer:
-        "¡De nada! Si querés, preguntame por el stack, los proyectos o el " +
-        "contacto."
-    }
-  ];
-
-  /* ============================ HELPERS ============================ */
-
-  function normalize(value) {
-    return (value || "")
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-  function demoAnswer(message) {
-    var text = normalize(message);
-
-    for (var i = 0; i < RULES.length; i++) {
-      if (RULES[i].test.test(text)) return RULES[i].answer;
-    }
-
-    return FALLBACK;
-  }
-
   function makeEl(tag, className, text) {
     var node = global.document.createElement(tag);
     if (className) node.className = className;
@@ -257,23 +170,19 @@
           body: JSON.stringify({ message: message })
         });
 
-        if (response.ok) {
-          var data = await response.json();
-          if (data && data.reply) {
-            return data.reply;
-          }
+        var data = await response.json();
+        if (response.ok && data && data.reply) {
+          return data.reply;
+        }
+
+        if (data && (data.error || data.details)) {
+          return "Error del servidor: " + (data.details || data.error);
         }
       } catch (err) {
+        return "No se pudo conectar con el agente (" + err.message + "). Verificá tu conexión a internet.";
       }
 
-      return new Promise(function (resolve) {
-        global.setTimeout(
-          function () {
-            resolve(demoAnswer(message));
-          },
-          prefersReducedMotion() ? 0 : 400 + Math.random() * 300
-        );
-      });
+      return "No pude obtener una respuesta en este momento.";
     }
 
     function ask(message) {

@@ -1,8 +1,21 @@
 import { GoogleGenAI } from "@google/genai";
-import knowledgeData from "./knowledge.json" assert { type: "json" };
+import { readFileSync } from "fs";
+import { join } from "path";
 
 const apiKey = process.env.GEMINI_API_KEY;
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+
+let knowledgeData = {};
+try {
+  const filePath = join(process.cwd(), "api", "knowledge.json");
+  const raw = readFileSync(filePath, "utf-8");
+  knowledgeData = JSON.parse(raw);
+} catch (e) {
+  try {
+    const rawLocal = readFileSync("./api/knowledge.json", "utf-8");
+    knowledgeData = JSON.parse(rawLocal);
+  } catch (err) {}
+}
 
 const SYSTEM_INSTRUCTION = `
 Sos el agente de inteligencia artificial integrado en el portafolio de Juan Ignacio Ortiz.
