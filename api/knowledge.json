@@ -1,0 +1,395 @@
+{
+  "perfil": {
+    "nombre": "Juan Ignacio Ortiz",
+    "titulo": "Fullstack Developer & AI Agent Developer",
+    "ubicacion": "Córdoba, Argentina",
+    "especialidad": "AI Agents & Fullstack",
+    "idiomas": [
+      "Español (nativo)",
+      "Inglés (técnico)"
+    ],
+    "contacto": {
+      "email": "juan_ignaortiz@outlook.com",
+      "linkedin": "https://www.linkedin.com/in/juan-ignacio-ortiz-a40926317/",
+      "github": "https://github.com/JuanOrtizz",
+      "cv": "assets/cv/Juan-Ignacio-Ortiz-CV.pdf"
+    },
+    "lead": "Construyo software fullstack para diferentes plataformas (Web, Móvil y Desktop), y agentes de IA que usan RAG, MCP, DB y herramientas para resolver problemas concretos de negocio.",
+    "sobre_mi": [
+      "Soy Técnico Universitario en Programación de Sistemas y desarrollador Fullstack con foco en AI Agents. Trabajo escribiendo código mantenible: arquitectura limpia, principios SOLID y POO.",
+      "Mi foco son los agentes conversacionales: agentes conectados a bases de datos reales que consultan, responden y ejecutan tareas en lugar de solo conversar. Eso implica RAG, prompt engineering, MCP e integraciones con APIs externas.",
+      "Antes de los agentes vino el backend: Django, DRF, PostgreSQL, .NET, Kotlin, JWT y APIs REST. Esa base es la que sostiene los proyectos que armo hoy.",
+      "Cuando no programo, estudio. Las certificaciones son parte de esa rutina, no decoración del CV."
+    ]
+  },
+  "skills": {
+    "lenguajes": ["Python", "JavaScript", "Kotlin", "C#", "SQL", "Java"],
+    "frontend": ["React", "Vite", "HTML semántico", "CSS", "Bootstrap", "SweetAlert2", "GSAP", "Chart.js"],
+    "backend": [
+      "Django",
+      "Django REST Framework",
+      "APIs REST",
+      "JWT",
+      "Node.js",
+      "Express.js",
+      ".NET MAUI",
+      "Arquitectura limpia",
+      "SOLID",
+      "POO",
+      "MVC",
+      "MVVM",
+      "MVT"
+    ],
+    "ia_y_agentes": [
+      "n8n",
+      "RAG",
+      "MCP",
+      "LLMs",
+      "Claude",
+      "Claude Code",
+      "Claude Cowork",
+      "Ollama",
+      "Gemini",
+      "OpenAI",
+      "Agentforce",
+      "Supabase",
+      "Prompt engineering",
+      "META API",
+      "OpenCode",
+      "GitHub Copilot",
+      "Cursor AI",
+      "Codex",
+      "Antigravity"
+    ],
+    "datos": [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "SQLite",
+      "Modelado de datos",
+      "Queries",
+      "Índices",
+      "Views",
+      "Stored Procedures",
+      "Triggers"
+    ],
+    "herramientas": [
+      "Git",
+      "GitHub",
+      "Docker",
+      "CI/CD",
+      "PyTest",
+      "Scrum",
+      "GitLab",
+      "Docker Compose",
+      "OpenAPI / Swagger",
+      "Jira",
+      "Trello",
+      "Postman",
+      "Figma",
+      "UML",
+      "Unity",
+      "UiPath"
+    ],
+    "practica": [
+      "GitHub Actions",
+      "Testing automatizado",
+      "Code review",
+      "Documentación técnica",
+      "Kanban",
+      "Patrones de diseño",
+      "Spec Driven Development",
+      "Skills Driven Development"
+    ]
+  },
+  "experiencia": [
+    {
+      "empresa": "PoshiNet",
+      "modalidad": "Remoto (Argentina)",
+      "periodo": "Ago 2026 — presente",
+      "rol_actual": "Coordinador de Desarrollo & Software Developer",
+      "rol_anterior": "Desarrollador de Software (Mar 2026 — Ago 2026)",
+      "responsabilidades": [
+        "Desarrollo activo de nuevas funcionalidades y módulos de software, participando en la arquitectura, codificación y mantenimiento continuo de las plataformas.",
+        "Revisión de pull requests y control de calidad del código del equipo.",
+        "Gestión de proyectos: planificación, priorización de tareas y seguimiento de las entregas.",
+        "Coordinación técnica y mentoría del equipo de desarrollo.",
+        "Definición de estándares de código y buenas prácticas, en coordinación con el resto del equipo."
+      ],
+      "tags": [
+        "Desarrollo de Software",
+        "Coordinación Técnica",
+        "Git & GitHub",
+        "Code Review & QA",
+        "Scrum",
+        "APIs REST"
+      ]
+    },
+    {
+      "empresa": "Incompany",
+      "modalidad": "Remoto (Costa Rica)",
+      "periodo": "Ago 2026 — presente",
+      "rol_actual": "AI Specialist Operator",
+      "rol_anterior": "Pasante Desarrollador de Agentes AI (Jun 2026 — Ago 2026)",
+      "responsabilidades": [
+        "Desarrollo e integración End-to-End (E2E) de agentes con IA y prototipos (PoC) en n8n, Claude y Agentforce, conectados a canales como WhatsApp, Telegram e Instagram.",
+        "Definición y supervisión de políticas de gobernanza, seguridad y buenas prácticas en el uso de IA generativa para toda la organización.",
+        "Mentoría y soporte técnico a desarrolladores para potenciar el uso de herramientas de IA en flujos de codificación, debugging y testing.",
+        "Capacitación y acompañamiento a Project Managers (PMs) para optimizar estimaciones, especificaciones y gestión mediante IA.",
+        "Auditoría, testing E2E y control de calidad de agentes y prompts: mitigación de alucinaciones, fuga de datos y trazabilidad."
+      ],
+      "tags": [
+        "Gobernanza de IA",
+        "Claude & LLMs",
+        "Agentforce",
+        "n8n",
+        "WhatsApp & Telegram",
+        "Soluciones E2E",
+        "Prompt Engineering",
+        "RAG & MCP"
+      ]
+    },
+    {
+      "empresa": "ChatMind Studio",
+      "modalidad": "Remoto (Argentina)",
+      "periodo": "Mar 2026 — Oct 2026",
+      "rol_actual": "Agent & Chatbot AI Developer",
+      "responsabilidades": [
+        "Diseño y desarrollo de agentes conversacionales y chatbots en Python con máquinas de estado finitas y flujos lógicos guiados por etapas.",
+        "Implementación de lógica de extracción inteligente de entidades y validación de entradas de usuario para recopilar información clave sin fricciones.",
+        "Conexión e integración con APIs de mensajería (WhatsApp, Telegram, Instagram) y webhooks para sincronización con plataformas externas.",
+        "Optimización continua de árboles de diálogo y respuestas mediante análisis de logs y métricas de comportamiento de usuarios reales.",
+        "Diseño de rutas de fallback, manejo de respuestas fuera de contexto y derivación fluida hacia atención humana."
+      ],
+      "tags": [
+        "Python",
+        "Chatbots",
+        "Agentes AI",
+        "APIs & Webhooks",
+        "UX"
+      ]
+    },
+    {
+      "empresa": "Freelance",
+      "modalidad": "Freelance",
+      "periodo": "Jul 2025 — presente",
+      "rol_actual": "Desarrollador de Software Freelance",
+      "responsabilidades": [
+        "Desarrollo de aplicaciones web y móviles a medida para diversos clientes: plataformas e-commerce, sistemas de inventario y simuladores de negocio.",
+        "Construcción de arquitecturas backend y APIs REST escalables con Django (Python) y .NET MAUI (C#), priorizando rendimiento, modularidad y seguridad.",
+        "Modelado, normalización y gestión de bases de datos relacionales en PostgreSQL y SQLite, asegurando integridad referencial y consultas optimizadas.",
+        "Cobertura de código con tests unitarios y de integración mediante PyTest, minimizando regresiones y fallos en producción.",
+        "Gestión ágil bajo Scrum con entregas iterativas, demostraciones funcionales periódicas y trato directo con clientes para alinear expectativas técnicas y comerciales."
+      ],
+      "tags": [
+        "Django",
+        ".NET MAUI",
+        "PostgreSQL & SQLite",
+        "APIs REST",
+        "Git",
+        "Kotlin",
+        "PyTest",
+        "Scrum"
+      ]
+    }
+  ],
+  "proyectos": [
+    {
+      "id": "agentes-psicologia",
+      "titulo": "Sistemas de agentes y dashboard psicológico",
+      "categoria": "Plataforma web y Agentes - IA Aplicada",
+      "descripcion": "Plataforma de atención psicológica con dos chatbots automatizados en n8n: un agente terapéutico con IA en WhatsApp (Gemini) y otro de atención al cliente por Instagram DM, más un dashboard web en Django para gestionar las sesiones.",
+      "puntos_clave": [
+        "Agente de WhatsApp con Gemini que clasifica los mensajes, guía el diagnóstico inicial y agenda la sesión.",
+        "Flujos conversacionales orquestados en n8n, con Supabase para el estado e historial de cada paciente.",
+        "Backend Django + DRF con autenticación JWT, rate limiting y dashboard para gestionar las sesiones."
+      ],
+      "stack": ["Python", "Django", "DRF", "PostgreSQL", "JWT", "n8n", "Docker"],
+      "codigo_url": "https://github.com/JuanOrtizz/automatizacion_n8n_psicologia"
+    },
+    {
+      "id": "practicasa",
+      "titulo": "Practicasa",
+      "categoria": "E-commerce · Full stack",
+      "descripcion": "E-commerce de artículos para el hogar en Nogoyá, Entre Ríos: catálogo con variantes, colores y medidas, promociones (2x1, 3x2 y % OFF), carrito y un flujo de compra en pasos con panel de administración propio.",
+      "puntos_clave": [
+        "Compra en pasos (checkout, envío, método de pago y confirmación) con stock validado en la misma transacción.",
+        "Panel de administración con KPIs y gráficos (Chart.js) para productos, consultas y ventas.",
+        "Módulo SEO/GEO: robots.txt, sitemap.xml y llms.txt, JSON-LD, Open Graph y middleware de noindex."
+      ],
+      "stack": ["Python", "Django", "PostgreSQL", "Bootstrap 5", "Docker", "PyTest"],
+      "codigo_url": "https://github.com/JuanOrtizz/e-commerce-practicasa"
+    },
+    {
+      "id": "tradeflow",
+      "titulo": "TradeFlow",
+      "categoria": "App de escritorio · Windows",
+      "descripcion": "Sistema de gestión comercial y facturación para una distribuidora, como aplicación de escritorio: remitos, catálogo de productos, clientes y logística de distribución.",
+      "puntos_clave": [
+        "Módulo de facturación con búsqueda predictiva por relevancia y descuentos por ítem.",
+        "Persistencia local en SQLite con edición transaccional y respaldos automáticos.",
+        "Impresión de comprobantes en Original y Duplicado y exportación de catálogos a PDF."
+      ],
+      "stack": ["C#", ".NET MAUI", "SQLite", "MVVM", "QuestPDF"],
+      "codigo_url": "https://github.com/JuanOrtizz/TradeFlow"
+    },
+    {
+      "id": "trainiumneon",
+      "titulo": "TrainiumNeon",
+      "categoria": "Multiplataforma",
+      "descripcion": "App de escritorio y móvil para gestionar rutinas de entrenamiento: series, cargas, progreso por ejercicio y datos guardados localmente para usar sin conexión.",
+      "puntos_clave": [
+        "Series, cargas y progreso por ejercicio.",
+        "Persistencia local en SQLite, sin depender de la red.",
+        "MVVM para separar interfaz, lógica de negocio y datos."
+      ],
+      "stack": ["C#", ".NET MAUI", "XAML", "SQLite", "MVVM"],
+      "demo_url": "https://www.youtube.com/watch?v=vsxLZnYyRA8",
+      "codigo_url": "https://github.com/JuanOrtizz/TrainiumNeon_App"
+    },
+    {
+      "id": "fresh-and-simple",
+      "titulo": "Fresh & Simple",
+      "categoria": "E-commerce",
+      "descripcion": "Tienda online de ropa con catálogo, gestión de stock, carrito y checkout integrado con Mercado Pago. Incluye autenticación de usuarios y panel de pedidos.",
+      "puntos_clave": [
+        "Catálogo con control de stock y variantes por talle.",
+        "Checkout con Mercado Pago y manejo de webhooks para confirmar el pago.",
+        "Panel de pedidos para que el negocio gestione sin tocar la base de datos."
+      ],
+      "stack": ["Django", "PostgreSQL", "DRF", "JavaScript", "Mercado Pago"],
+      "demo_url": "https://freshandsimple.onrender.com/",
+      "codigo_url": "https://github.com/JuanOrtizz/Proyecto_Progra_WebII"
+    },
+    {
+      "id": "simulador-hipotecario",
+      "titulo": "Simulador de crédito hipotecario",
+      "categoria": "Fintech · Web app",
+      "descripcion": "Calculadora de créditos hipotecarios con amortización, plazo, tasa y cuota estimada. Cada consulta queda registrada y puede ser retomada por el asesor.",
+      "puntos_clave": [
+        "Cálculo de amortización, plazo, tasa y cuota estimada en el backend.",
+        "Historial de consultas guardadas para que el asesor las retome sin volver a pedirlas.",
+        "Validación de datos en el servidor, no solo en el formulario."
+      ],
+      "stack": ["Django", "DRF", "PostgreSQL", "JavaScript"],
+      "demo_url": "https://finanzasraiz.onrender.com/",
+      "codigo_url": "https://github.com/JuanOrtizz/Proyecto_Simulador_Hipotecario"
+    },
+    {
+      "id": "micabania",
+      "titulo": "MiCabaña",
+      "categoria": "Android",
+      "descripcion": "App Android para controlar el inventario de una propiedad de alquiler: entradas y salidas, stock por producto y alertas cuando un artículo baja del mínimo.",
+      "puntos_clave": [
+        "Entradas y salidas de stock por producto.",
+        "Alertas cuando un artículo queda por debajo del mínimo configurado.",
+        "Datos locales en SQLite: la app funciona sin conexión."
+      ],
+      "stack": ["Kotlin", "XML", "SQLite", "Material Design 3"],
+      "demo_url": "https://www.youtube.com/watch?v=CkExcqhv6X8",
+      "codigo_url": "https://github.com/JuanOrtizz/app_micabania"
+    },
+    {
+      "id": "veterinaria",
+      "titulo": "Gestión de veterinaria",
+      "categoria": "App de consola · C#",
+      "descripcion": "Aplicación de consola para la gestión administrativa de un centro veterinario: clientes, mascotas y su historial médico.",
+      "puntos_clave": [
+        "Registro de clientes y mascotas con historial de visitas, vacunas y tratamientos.",
+        "Programación de citas y módulo de facturación de servicios.",
+        "Persistencia en archivos JSON y .txt con serialización de objetos."
+      ],
+      "stack": ["C#", ".NET", "POO", "Git"],
+      "codigo_url": "https://github.com/JuanOrtizz/Sistema_Veterinaria"
+    },
+    {
+      "id": "libreria",
+      "titulo": "Gestor de librería",
+      "categoria": "App de escritorio · Java",
+      "descripcion": "Aplicación de escritorio para administrar una librería: socios, préstamos y devoluciones de libros, con control de multas por retraso.",
+      "puntos_clave": [
+        "Interfaz de escritorio construida con Java Swing.",
+        "Préstamos y devoluciones con registro de multas por retraso.",
+        "Persistencia de datos en archivos de texto."
+      ],
+      "stack": ["Java", "Swing", "POO"],
+      "codigo_url": "https://github.com/JuanOrtizz/DOO-Sistema-Biblioteca"
+    },
+    {
+      "id": "mate-style",
+      "titulo": "Mate-Style",
+      "categoria": "E-commerce · Frontend",
+      "descripcion": "Tienda online de productos para el mate (mates, termos, bombillas y accesorios) centrada en la experiencia de navegación y el flujo de compra.",
+      "puntos_clave": [
+        "Catálogo por categorías con filtrado por rango de precios.",
+        "Carrito dinámico en el cliente: agregar, ver y eliminar productos.",
+        "Interacciones con JavaScript puro, sin framework."
+      ],
+      "stack": ["HTML5", "CSS3", "JavaScript", "Git"],
+      "demo_url": "https://juanortizz.github.io/Programacion_Web_I_Mate-Style/",
+      "codigo_url": "https://github.com/JuanOrtizz/Programacion_Web_I_Mate-Style"
+    }
+  ],
+  "educacion": {
+    "titulaciones": [
+      {
+        "titulo": "Tecnicatura Universitaria en Programación de Sistemas",
+        "institucion": "UCES — Universidad de Ciencias Empresariales y Sociales",
+        "periodo": "2023 — Dic 2025",
+        "nota": "Promedio final 9.85 / 10."
+      },
+      {
+        "titulo": "Programa Full Stack Developer",
+        "institucion": "ITBA — Instituto Tecnológico de Buenos Aires",
+        "periodo": "Ago 2026 — en curso"
+      }
+    ],
+    "certificaciones": [
+      {
+        "nombre": "Inmersión Agentes de IA en la práctica",
+        "emisor": "Daxus Latam",
+        "fecha": "Octubre 2026"
+      },
+      {
+        "nombre": "Curso Fundamentos de Ingeniero IA con Python",
+        "emisor": "Código Facilito",
+        "fecha": "Agosto 2026"
+      },
+      {
+        "nombre": "Curso de Automatizaciones con N8N e Inteligencia Artificial",
+        "emisor": "Raiola Networks",
+        "fecha": "Agosto 2026"
+      },
+      {
+        "nombre": "AgentBlazer Champions",
+        "emisor": "Trailhead by Salesforce",
+        "fecha": "Julio 2026"
+      },
+      {
+        "nombre": "Certificación de Iniciación al Desarrollo con IA",
+        "emisor": "BIG School",
+        "fecha": "Junio 2026"
+      },
+      {
+        "nombre": "Curso Profesional de Docker",
+        "emisor": "Código Facilito",
+        "fecha": "Marzo 2026"
+      },
+      {
+        "nombre": "Certificación de Iniciación al Desarrollo con IA",
+        "emisor": "BIG School",
+        "fecha": "Marzo 2026"
+      },
+      {
+        "nombre": "Introducción a la programación con Python",
+        "emisor": "Santander Open Academy",
+        "fecha": "Marzo 2025"
+      },
+      {
+        "nombre": "Programación para principiantes: HTML5, CSS3",
+        "emisor": "Campus Córdoba",
+        "fecha": "Octubre – Septiembre 2023"
+      }
+    ]
+  }
+}
