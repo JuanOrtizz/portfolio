@@ -42,19 +42,50 @@
     return node;
   }
 
-  function renderMarkdown(text) {
-    if (!text) return "";
-    var html = text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+  function parseMarkdownTokens(text) {
+    if (!text) return [];
+    var tokens = [];
+    var regex = /(\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*)/g;
+    var lastIndex = 0;
+    var match;
 
-    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a class="term-link" href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-    html = html.replace(/`([^`]+)`/g, '<code class="term-code">$1</code>');
-    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-    html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        var plain = text.slice(lastIndex, match.index);
+        tokens.push({ type: "text", content: plain });
+      }
 
-    return html;
+      if (match[2] && match[3]) {
+        tokens.push({
+          type: "link",
+          text: match[2],
+          url: match[3]
+        });
+      } else if (match[4]) {
+        tokens.push({
+          type: "code",
+          content: match[4]
+        });
+      } else if (match[5]) {
+        tokens.push({
+          type: "strong",
+          content: match[5]
+        });
+      } else if (match[6]) {
+        tokens.push({
+          type: "em",
+          content: match[6]
+        });
+      }
+
+      lastIndex = regex.lastIndex;
+    }
+
+    if (lastIndex < text.length) {
+      tokens.push({ type: "text", content: text.slice(lastIndex) });
+    }
+
+    return tokens;
   }
 
   /* ============================ UI ============================ */
@@ -101,37 +132,109 @@
       return line;
     }
 
+    function renderTokensTo(container, tokens) {
+      container.textContent = "";
+      tokens.forEach(function (token) {
+        if (token.type === "text") {
+          container.appendChild(global.document.createTextNode(token.content));
+        } else if (token.type === "strong") {
+          var strong = makeEl("strong", null, token.content);
+          container.appendChild(strong);
+        } else if (token.type === "em") {
+          var em = makeEl("em", null, token.content);
+          container.appendChild(em);
+        } else if (token.type === "code") {
+          var code = makeEl("code", "term-code", token.content);
+          container.appendChild(code);
+        } else if (token.type === "link") {
+          var a = makeEl("a", "term-link", token.text);
+          a.href = token.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          container.appendChild(a);
+        }
+      });
+    }
+
     function typeText(container, text, onDone) {
+      var tokens = parseMarkdownTokens(text);
       container.textContent = "";
 
       if (prefersReducedMotion()) {
-        container.innerHTML = renderMarkdown(text);
+        renderTokensTo(container, tokens);
         scrollBottom();
         if (onDone) onDone();
         return;
       }
 
-      var textNode = global.document.createTextNode("");
       var cursor = makeEl("span", "term-cursor");
-      container.appendChild(textNode);
       container.appendChild(cursor);
 
-      var total = text.length;
-      var index = 0;
+      var tokenIndex = 0;
+      var charIndex = 0;
+      var currentDOMNode = null;
 
-      var timer = global.setInterval(function () {
-        index += 2 + Math.floor(Math.random() * 3);
+      function setupNextToken() {
+        if (tokenIndex >= tokens.length) return false;
+        var token = tokens[tokenIndex];
+        charIndex = 0;
 
-        if (index >= total) {
-          global.clearInterval(timer);
-          cursor.remove();
-          container.innerHTML = renderMarkdown(text);
-          scrollBottom();
-          if (onDone) onDone();
-          return;
+        if (token.type === "text") {
+          currentDOMNode = global.document.createTextNode("");
+        } else if (token.type === "strong") {
+          currentDOMNode = makeEl("strong", null, "");
+        } else if (token.type === "em") {
+          currentDOMNode = makeEl("em", null, "");
+        } else if (token.type === "code") {
+          currentDOMNode = makeEl("code", "term-code", "");
+        } else if (token.type === "link") {
+          currentDOMNode = makeEl("a", "term-link", "");
+          currentDOMNode.href = token.url;
+          currentDOMNode.target = "_blank";
+          currentDOMNode.rel = "noopener noreferrer";
         }
 
-        textNode.data = text.slice(0, index);
+        container.insertBefore(currentDOMNode, cursor);
+        return true;
+      }
+
+      if (!setupNextToken()) {
+        cursor.remove();
+        if (onDone) onDone();
+        return;
+      }
+
+      var timer = global.setInterval(function () {
+        var token = tokens[tokenIndex];
+        var targetString = token.type === "link" ? token.text : token.content;
+
+        charIndex += 2 + Math.floor(Math.random() * 3);
+
+        if (charIndex >= targetString.length) {
+          charIndex = targetString.length;
+          if (token.type === "text") {
+            currentDOMNode.data = targetString;
+          } else {
+            currentDOMNode.textContent = targetString;
+          }
+
+          tokenIndex += 1;
+          if (!setupNextToken()) {
+            global.clearInterval(timer);
+            cursor.remove();
+            scrollBottom();
+            if (onDone) onDone();
+            return;
+          }
+        } else {
+          var partial = targetString.slice(0, charIndex);
+          if (token.type === "text") {
+            currentDOMNode.data = partial;
+          } else {
+            currentDOMNode.textContent = partial;
+          }
+        }
+
         scrollBottom();
       }, 10);
     }
