@@ -44,14 +44,17 @@
 
   function parseMarkdownTokens(text) {
     if (!text) return [];
+
+    var clean = text.replace(/^#{1,6}\s+(.+)$/gm, "**$1**");
+
     var tokens = [];
-    var regex = /(\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*)/g;
+    var regex = /(\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^\s\)]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|\*([^\s*][^*]*[^\s*]|[^\s*])\*)/g;
     var lastIndex = 0;
     var match;
 
-    while ((match = regex.exec(text)) !== null) {
+    while ((match = regex.exec(clean)) !== null) {
       if (match.index > lastIndex) {
-        var plain = text.slice(lastIndex, match.index);
+        var plain = clean.slice(lastIndex, match.index);
         tokens.push({ type: "text", content: plain });
       }
 
@@ -81,8 +84,8 @@
       lastIndex = regex.lastIndex;
     }
 
-    if (lastIndex < text.length) {
-      tokens.push({ type: "text", content: text.slice(lastIndex) });
+    if (lastIndex < clean.length) {
+      tokens.push({ type: "text", content: clean.slice(lastIndex) });
     }
 
     return tokens;
