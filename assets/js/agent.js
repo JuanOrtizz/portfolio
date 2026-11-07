@@ -42,6 +42,21 @@
     return node;
   }
 
+  function renderMarkdown(text) {
+    if (!text) return "";
+    var html = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a class="term-link" href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    html = html.replace(/`([^`]+)`/g, '<code class="term-code">$1</code>');
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+
+    return html;
+  }
+
   /* ============================ UI ============================ */
 
   function initAgent() {
@@ -90,7 +105,7 @@
       container.textContent = "";
 
       if (prefersReducedMotion()) {
-        container.textContent = text;
+        container.innerHTML = renderMarkdown(text);
         scrollBottom();
         if (onDone) onDone();
         return;
@@ -105,21 +120,20 @@
       var index = 0;
 
       var timer = global.setInterval(function () {
-        index += 1 + Math.floor(Math.random() * 2);
+        index += 2 + Math.floor(Math.random() * 3);
 
         if (index >= total) {
-          index = total;
           global.clearInterval(timer);
-          textNode.data = text;
-          scrollBottom();
           cursor.remove();
+          container.innerHTML = renderMarkdown(text);
+          scrollBottom();
           if (onDone) onDone();
           return;
         }
 
         textNode.data = text.slice(0, index);
         scrollBottom();
-      }, 14);
+      }, 10);
     }
 
     function boot() {

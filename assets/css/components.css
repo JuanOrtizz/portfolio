@@ -1256,6 +1256,31 @@ a.contact__item:hover .contact__icon {
   color: var(--text-secondary);
 }
 
+.term-line__text strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.term-line__text a.term-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.term-line__text a.term-link:hover {
+  color: var(--accent-hover, #a78bfa);
+}
+
+.term-line__text code.term-code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--accent-pink, #f472b6);
+}
+
 .term-line--error .term-line__tag {
   color: #ff5f57;
 }
